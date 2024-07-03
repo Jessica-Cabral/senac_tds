@@ -4,7 +4,7 @@ n2 = int(input("Digite o segundo número: "))
 n3 = int(input("Digite o terceiro número: "))
 
 #processamento
-sub=n1-n2-n3
+media=(n1+n2+n3)/3
 
 #saída
-print("O resultado é: ",sub)
+print("O resultado é: ",media)
