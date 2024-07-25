@@ -12,7 +12,7 @@ temperatuaFahrenheit = float(input("Informe a temperatura em fahrenheit: "))
 
 #Processamento
 
-converteCelsius = (temperatuaFahrenheit -32)* 5/9
+converteCelsius = (temperatuaFahrenheit *1.8)+32
 
 #saida
 
