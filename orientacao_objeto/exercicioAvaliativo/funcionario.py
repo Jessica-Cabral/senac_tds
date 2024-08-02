@@ -5,7 +5,7 @@ class Funcionario():
         #atributos
         self.nome = None
         self.login = None
-        self.senhaUsuario = None
+        self.senhaUsuario = None    
         self.senhaSistema = '1234'
         self.salario = None
 
@@ -53,10 +53,18 @@ class Funcionario():
     # validar senha
     
     def validar_senha(self):
-        if self.get_senhaUsuario == self.get_senhaSistema(): 
+        #self.set_senhaSistema('1234')
+        if self.get_senhaUsuario() == self.get_senhaSistema(): 
             return True
         else: 
             return False
+        
+    #alterar senha
+    
+    def alterar_senha(self):
+        self.set_senhaSistema(input("Informe a nova Senha: "))
+        print('Senha alterada com sucesso!')
+    
         
     #calcular IRPF
     
@@ -64,16 +72,37 @@ class Funcionario():
         if self.get_salario() >= 2.500:
             return self.get_salario() * 0.15
         else:
-            return 'Isento!'
+            return 0
         
     #aumentar salário
-    
+      
     def aumentar_salario(self, percentualAumento):
-        self.set_salario()+(self.get_salario()*percentualAumento)
-        return self.get_valorAumento()
-       
+        return self.set_salario(self.get_salario()+self.get_salario()*percentualAumento/100)
+        
     #calcular salário
     
     def calcular_salario(self):
-        self.set_salario()- self.calcular_irpf()
-        return self.get_novoSalario()
+        self.set_salario(self.get_salario()-self.calcular_irpf())
+        return print('Salário bruto: ',self.get_salario(),'\nDesconto IRPF: ', self.calcular_irpf(), '\nO novo salário é: ', self.get_salario())
+    
+    def cabecalho(self):
+        print('--------------------------')
+        print('        SISTEMA DP        ')
+        print('--------------------------')
+        
+    def menuOpcao(self):
+        print('--------------------------')
+        print('        SISTEMA DP        ')
+        print('--------------------------')
+        print('\nEscolha uma opção:')
+        print('1 - Cadastrar funcionário')
+        print('2 - Mostrar dados')
+        print('3 - Alterar Senha')
+        print('4 - Calcular Salário')
+        print('5 - Sair')
+        opcao = input('Opcao: ')
+        return opcao
+
+    def mostrarDados(self):
+        print('Nome: ', self.get_nome())
+        print('Salário: ', self.get_salario())
